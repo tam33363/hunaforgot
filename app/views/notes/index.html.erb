@@ -1,9 +1,18 @@
-<h1>Listing notes</h1>
+<h1>Note list</h1>
 
+<div id="search">
+  <%= form_for(@note_search, :url => {:action => :index}, :method => :get) do |f| %>
+    <%= f.label :title, 'Title' %>
+    <%= f.text_field :title, :value => @note_search.title %>
+    <%= f.submit I18n.t(:search_button) %>
+  <% end %>
+</div>
+
+<div id="content">
 <table>
   <tr>
     <th>Title</th>
-    <th>Id</th>
+    <th>ID</th>
     <th>Password</th>
     <th>Url</th>
     <th></th>
@@ -23,6 +32,8 @@
   </tr>
 <% end %>
 </table>
+
+</div>
 
 <br />
 

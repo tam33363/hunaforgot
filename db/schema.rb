@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20120311051700) do
 
   create_table "notes", :force => true do |t|
     t.string   "title"
+    t.integer  "user_id"
     t.string   "my_id"
     t.string   "my_password"
     t.string   "url"

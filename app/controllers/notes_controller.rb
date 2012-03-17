@@ -1,9 +1,26 @@
 class NotesController < ApplicationController
+
+  before_filter :authenticate_user! 
+
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @notes = nil
 
+    # 検索条件を取得
+    target_title = params[:note_search][:title] if not params[:note_search].blank?
+
+    # 検索フォーム用のオブジェクトを作成
+    @note_search = NoteSearch.new(target_title)
+
+    if target_title.blank?
+      # 検索条件がない場合は当該ユーザに関連する情報をすべて抽出する
+      @notes = Note.where(:user_id => current_user.id)
+    else
+      # 検索条件がある場合はそれを加味して検索する
+      @notes = Note.where(:user_id => current_user.id).where(["title LIKE ?", "%#{target_title}%"])
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @notes }
@@ -41,6 +58,9 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(params[:note])
+
+    # Add user id
+    @note.user_id = current_user.id
 
     respond_to do |format|
       if @note.save
