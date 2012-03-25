@@ -1,6 +1,6 @@
-<h1>Note list</h1>
+<h1>Note List</h1>
 
-<div id="search">
+<div id="search" class="section">
   <%= form_for(@note_search, :url => {:action => :index}, :method => :get) do |f| %>
     <%= f.label :title, 'Title' %>
     <%= f.text_field :title, :value => @note_search.title %>
@@ -8,13 +8,13 @@
   <% end %>
 </div>
 
-<div id="content">
-<table>
+<div class="section">
+<table class="general">
   <tr>
     <th>Title</th>
     <th>ID</th>
     <th>Password</th>
-    <th>Url</th>
+    <th>URL</th>
     <th></th>
     <th></th>
     <th></th>
@@ -34,7 +34,5 @@
 </table>
 
 </div>
-
-<br />
 
 <%= link_to 'New Note', new_note_path %>
