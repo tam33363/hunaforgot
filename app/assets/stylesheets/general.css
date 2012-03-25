@@ -1,7 +1,7 @@
 /* レイアウト */
 div#wrapper {
-  width: 800px;
-  margin: 10px auto;
+  margin-top: 20px;
+  margin-left: 20px;
   background-color: white;
   font-size: 12px;
   color: #697c8e;
@@ -56,5 +56,4 @@ table.general {
 #user_navi {
   float: left;
   margin-left: 36px;
-  padding: auto 5px 0px auto;
 }
