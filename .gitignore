@@ -16,3 +16,6 @@
 
 # My original setting
 .DS_Store
+
+# locally installed gems
+/vendor/bundle/
