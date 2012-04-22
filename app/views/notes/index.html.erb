@@ -10,6 +10,13 @@
 
 <div class="section">
 <table class="general">
+  <col id="title">
+  <col id="user_id">
+  <col id="password">
+  <col id="url">
+  <col class="cmd">
+  <col class="cmd">
+  <col class="cmd">
   <tr>
     <th>Title</th>
     <th>ID</th>
@@ -26,9 +33,9 @@
     <td><%= note.my_id %></td>
     <td><%= note.my_password %></td>
     <td><a href="<%= note.url %>" target="_blank"><%= note.url %></td>
-    <td><%= link_to 'Show', note %></td>
-    <td><%= link_to 'Edit', edit_note_path(note) %></td>
-    <td><%= link_to 'Destroy', note, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to image_tag('magnifier.png', :alt=>'Show'), note %></td>
+    <td><%= link_to image_tag('pencil.png', :alt=>'Edit'), edit_note_path(note) %></td>
+    <td><%= link_to image_tag('trash.png', :alt=>'Destroy'), note, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
