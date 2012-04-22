@@ -21,7 +21,7 @@
     <th>Title</th>
     <th>ID</th>
     <th>Password</th>
-    <th>URL</th>
+    <th>Link</th>
     <th></th>
     <th></th>
     <th></th>
@@ -32,7 +32,7 @@
     <td><%= note.title %></td>
     <td><%= note.my_id %></td>
     <td><%= note.my_password %></td>
-    <td><a href="<%= note.url %>" target="_blank"><%= note.url %></td>
+    <td><a href="<%= note.url %>" target="_blank">Website</td>
     <td><%= link_to image_tag('magnifier.png', :alt=>'Show'), note %></td>
     <td><%= link_to image_tag('pencil.png', :alt=>'Edit'), edit_note_path(note) %></td>
     <td><%= link_to image_tag('trash.png', :alt=>'Destroy'), note, confirm: 'Are you sure?', method: :delete %></td>
