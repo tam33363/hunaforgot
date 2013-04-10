@@ -1,9 +1,10 @@
-<h1>Note List</h1>
+
+<%= link_to 'New Note', new_note_path %>
 
 <div id="search" class="section">
   <%= form_for(@note_search, :url => {:action => :index}, :method => :get) do |f| %>
     <%= f.label :title, 'Title' %>
-    <%= f.text_field :title, :value => @note_search.title %>
+    <%= f.text_field :title, :value => @note_search.title, :id =>'title' %>
     <%= f.submit I18n.t(:search_button) %>
   <% end %>
 </div>

@@ -4,7 +4,11 @@ Hunaforgot::Application.routes.draw do
 
   resources :notes
 
-  devise_for :users
+  devise_for :users, :controllers => {
+    # usersのコントローラーに独自のものを指定
+    :registrations => 'users/registrations'
+  }
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
